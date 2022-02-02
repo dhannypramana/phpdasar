@@ -1,9 +1,9 @@
 <?php 
     $students = [
         ["Dhanny Pramana", "118140182", " Teknik Informatika", " p.dhannypramana@gmail.com"], 
-        ["Achmad Ferdi", "118140172", " Teknik Informatika", " p.ferdi@gmail.com"],
-        ["Yosia Gilbert", "118140185", " Teknik Informatika", " p.gilbert@gmail.com"],
-        ["Netiawan Ferdi", "118140198", " Teknik Kelautan", " p.nesti@gmail.com"]
+        ["John Doe", "118140172", " Teknik Informatika", " p.john@gmail.com"],
+        ["Maria Koko", "118140185", " Teknik Informatika", " p.maria@gmail.com"],
+        ["Mitchy Doo", "118140198", " Teknik Kelautan", " p.Doo@gmail.com"]
     ];
 ?>
 
