@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    border: 2px solid black;
+    padding: 15px;
+}
+
+.ganjil {
+    background-color: lightgray;
+}
