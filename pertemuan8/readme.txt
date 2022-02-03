@@ -1,0 +1,1 @@
+Pertemuan8 hanya membahas mysql
