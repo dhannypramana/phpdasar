@@ -52,7 +52,10 @@
             ?>
             <tr>
                 <td><?=$no_urut;?></td>
-                <td><a href="#">Ubah</a> | <a href="#">Hapus</a></td>
+                <td>
+                    <a href="#">Ubah</a> | 
+                    <a href="#">Hapus</a>
+                </td>
                 <td><img src="img/<?=$row["gambar"]; ?>"></td>
                 <td><?=$row["nrp"]; ?></td>
                 <td><?=$row["nama"]; ?></td>
