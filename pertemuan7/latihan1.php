@@ -36,7 +36,7 @@
         ],
         [
             "nama"=> "Dodi Pramana", 
-            "nim" => "118140182",
+            "nim" => "118140177",
             "email" => "p.dodipramana@gmail.com",
             "prodi" => "Teknik Informatika", 
             "gambar" => "3.jpg"
@@ -51,15 +51,15 @@
         [
             "nama" => "Maria Koko", 
             "nim" => "118140185", 
-            "prodi" => " Teknik Informatika", 
-            "email" => " p.maria@gmail.com",
+            "prodi" => "Teknik Informatika", 
+            "email" => "p.maria@gmail.com",
             "gambar" => "5.jpg"
         ],
         [
             "nama" => "Mitchy Doo", 
             "nim" => "118140198", 
-            "prodi" => " Teknik Kelautan", 
-            "email" => " p.Doo@gmail.com",
+            "prodi" => "Teknik Kelautan", 
+            "email" => "p.Doo@gmail.com",
             "gambar" => "6.jpg"
         ]
     ];
