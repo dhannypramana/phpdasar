@@ -24,6 +24,12 @@
             background-color: salmon;
             color: white;
             margin: 3px;
+            transition: 1s;
+        }
+
+        .box:hover  {
+            transform: rotate(360deg);
+            border-radius: 50%;
         }
 
         .container {
