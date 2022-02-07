@@ -37,7 +37,7 @@
 <body>
     <div class="container mt-5">
         <h1>Tambah Data Mahasiswa</h1>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group mb-3">
                 <label for="nama">Nama</label>
                 <input class="form-control" type="text" name="nama" id="nama" required>
