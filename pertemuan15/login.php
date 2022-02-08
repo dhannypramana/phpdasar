@@ -44,11 +44,11 @@
             <form action="" method="post">
                 <div class="form-group">
                     <label class="form-label" for="username">Username</label>
-                    <input class="form-control" type="text" id=="username" name="username" required autocomplete="off">
+                    <input class="form-control" type="text" name="username" id="username" required autocomplete="off">
                 </div>
                 <div class="form-group mt-3">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" id=="password" name="password" required autocomplete="off">
+                    <input class="form-control" type="password" id="password" name="password" required autocomplete="off">
                 </div>
                 <button class="btn btn-primary mt-4" type="submit" name="login">Sign In</button>
             </form>
