@@ -116,15 +116,10 @@
     function register($data)
     {
         global $conn;
-        $usernames = [];
         $username = strtolower(stripslashes($data["username"]));
+        $usernames_db = query("SELECT username FROM users WHERE username = '$username'");
 
-        $usernames_db = query("SELECT username FROM users");
-        foreach ($usernames_db as $u) {
-            $usernames[] = $u["username"];
-        }
-
-        if (in_array($username, $usernames)) {
+        if ($usernames_db[0]["username"] === $username) {
             echo "
                 <script>
                     alert('Username sudah terdaftar');
