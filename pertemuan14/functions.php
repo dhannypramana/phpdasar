@@ -107,10 +107,51 @@
                 return false;
             }
         }
-
         $query = "UPDATE mahasiswa SET nama = '$nama', nrp = '$nrp', email = '$email', prodi = '$prodi', gambar = '$gambar' WHERE id=$id";
 
         mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
+    }
+
+    function register($data)
+    {
+        global $conn;
+        $usernames = [];
+        $username = strtolower(stripslashes($data["username"]));
+
+        $usernames_db = query("SELECT username FROM users");
+        foreach ($usernames_db as $u) {
+            $usernames[] = $u["username"];
+        }
+
+        if (in_array($username, $usernames)) {
+            echo "
+                <script>
+                    alert('Username sudah terdaftar');
+                </script>
+            ";
+            return false;
+        }
+
+        $password = mysqli_real_escape_string($conn,$data["password"]);
+        $confirmed_password = mysqli_real_escape_string($conn,$data["confirmation-password"]);
+
+        if ($confirmed_password !==  $password) {
+            echo "
+                <script>
+                    alert('Password not Matching');
+                </script>
+            ";
+            return false;
+        }
+
+        // password hashing
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        // add user to db
+        $query= "INSERT INTO users VALUES ('', '$username', '$password')";
+        $result = mysqli_query($conn, $query);
+
         return mysqli_affected_rows($conn);
     }
 ?>
