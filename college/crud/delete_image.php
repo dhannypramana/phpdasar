@@ -6,7 +6,10 @@
     }
 
     $id = $_GET["id"];
+    $name = $_GET["name"];
+
     if (delete_image($id) > 0) {
+        unlink('img/'.$name);
         echo "
             <script>
                 alert('Image has been deleted');

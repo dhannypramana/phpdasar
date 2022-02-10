@@ -69,7 +69,12 @@
             height: 160px;
             object-size: cover;
             object-position: center;
-            padding: 10px 10px 10px 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        figcaption > .btn {
+            width: 100%;
         }
 
         .gallery-container {
@@ -96,6 +101,7 @@
                         <input class="form-control" type="text" name="keyword" id="keyword" autofocus autocomplete="off">
                     </div>
                     <button class="btn btn-primary mt-3 mb-3" type="submit" name="submit-keyword">Search</button>
+                    <a class="btn btn-primary" href="add.php">Add Books</a>
                 </form>
             </div>
             <div class="nav">
@@ -127,7 +133,6 @@
                 $number+=1; 
                 endforeach;?>
         </table>
-        <a class="btn btn-primary" href="add.php">Add Books</a>
 
         <div class="gallery mt-3 mb-3">
             <h1>Gallery</h1>
@@ -136,11 +141,12 @@
                 <?php foreach ($rows_image as $image) : ?>
                 <figure>
                     <img src="img/<?=$image["name"]?>">
-                    <figcaption><a href="delete_image.php?id=<?=$image["id"]?>" onclick="return confirm('Delete Image?')" class="btn btn-danger">Delete</a></figcaption>
+                    <figcaption><a href="delete_image.php?id=<?=$image["id"]?>&name=<?=$image["name"]?>" onclick="return confirm('Delete Image?')" class="btn btn-danger">Delete</a></figcaption>
                 </figure>
                 <?php endforeach;?>
             </div>
         </div>
+        
     </div>
 </body>
 </html>
