@@ -44,6 +44,51 @@
         return mysqli_affected_rows($conn);
     }
 
+    function add_image($datas){
+        global $conn;
+
+        $image_name = $datas["image"]["name"];
+        $image_tmp_name = $datas["image"]["tmp_name"];
+        $image_error = $datas["image"]["error"];
+        $image_size = $datas["image"]["size"];
+        $image_extension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+        // Check if there's no image uploaded
+        if ($image_error === 4) {
+            return false;
+        }
+
+        // Check if uploaded file is oversized (+->2MB)
+        if ($image_size > 2000000) {
+            return false;
+        }
+
+        // Check if user not upload image
+        $allowed_extension = ["jpg", "jpeg", "png"];
+        if (!in_array($image_extension, $allowed_extension)) {
+            return false;
+        }
+
+        // Finish Restriction, Ready to Upload
+        $image = uniqid().".".$image_extension;
+        move_uploaded_file($image_tmp_name, 'img/'.$image);
+
+        // Insert Image into db
+        $query = "INSERT INTO images VALUES ('', '$image')";
+        $result = mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
+
+    function delete_image($id){
+        global $conn;
+
+        $query = "DELETE FROM images WHERE id=$id";
+        $result = mysqli_query($conn, $query);
+
+        return mysqli_affected_rows($conn);
+    }
+
     function delete($id) {
         global $conn;
 

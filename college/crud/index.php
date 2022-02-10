@@ -2,6 +2,7 @@
     require "functions.php";
 
     $rows = query("SELECT * FROM books");
+    $rows_image = query("SELECT * FROM images");
 
     if(isset($_POST["submit-keyword"])){
         $keyword = $_POST["keyword"];
@@ -62,6 +63,20 @@
         .logout {
             height: 40px;
         }
+
+        img{
+            width: 200px;
+            height: 160px;
+            object-size: cover;
+            object-position: center;
+            padding: 10px 10px 10px 0;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
@@ -112,8 +127,20 @@
                 $number+=1; 
                 endforeach;?>
         </table>
-
         <a class="btn btn-primary" href="add.php">Add Books</a>
+
+        <div class="gallery mt-3 mb-3">
+            <h1>Gallery</h1>
+            <a class="btn btn-primary mb-3" href="add_image.php">Add Images</a>
+            <div class="gallery-container">
+                <?php foreach ($rows_image as $image) : ?>
+                <figure>
+                    <img src="img/<?=$image["name"]?>">
+                    <figcaption><a href="delete_image.php?id=<?=$image["id"]?>" onclick="return confirm('Delete Image?')" class="btn btn-danger">Delete</a></figcaption>
+                </figure>
+                <?php endforeach;?>
+            </div>
+        </div>
     </div>
 </body>
 </html>
