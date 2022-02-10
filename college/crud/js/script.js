@@ -1,6 +1,5 @@
 // Ambil Elemen yang dibutuhkan menggunakan DOM
 var keyword = document.getElementById('keyword');
-var submit_keyword = document.getElementById('submit-keyword');
 var table_container = document.getElementById('table-container');
 
 keyword.addEventListener('keyup' , function() {
