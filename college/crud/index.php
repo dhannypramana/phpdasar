@@ -102,9 +102,10 @@
                         <label class="form-label" for="keyword">Search Books</label>
                         <input class="form-control" type="text" name="keyword" id="keyword" autofocus autocomplete="off">
                     </div>
-                    <button class="btn btn-primary mt-3 mb-3" type="submit" name="submit-keyword">Search</button>
-                    <a class="btn btn-primary" href="add.php">Add Books</a>
+                    <!-- <button class="btn btn-primary mt-3 mb-3" type="submit" name="submit-keyword" id="submit-keyword">Search</button> -->
+                    <a class="btn btn-primary mt-3" href="add.php">Add Books</a>
                 </form>
+                <!-- Searching Forms -->
             </div>
             <div class="nav">
                 <a href="logout.php" class="btn btn-danger logout">Logout</a>
@@ -112,29 +113,31 @@
         </div>
 
         <!-- Data Tables -->
-        <table class="table">
-            <tr>
-                <th>No.</th>
-                <th class="action">Action</th>
-                <th class="title">Title</th>
-                <th>Type</th>
-            </tr>
-            <?php 
-                $number = 1; 
-                foreach ($rows as $row) :?>
-            <tr>
-                <td><?=$number?></td>
-                <td>
-                    <a href="edit.php?id=<?=$row["id"]?>">Edit</a> | 
-                    <a href="delete.php?id=<?=$row["id"]?>" onclick="return confirm('Delete Data?')">Delete</a>
-                </td>
-                <td><?=$row["titile"]?></td>
-                <td><?=$row["type"]?></td>
-            </tr>
-            <?php 
-                $number+=1; 
-                endforeach;?>
-        </table>
+        <div id="table-container"> <!-- Requirement for AJAX-->
+            <table class="table">
+                <tr>
+                    <th>No.</th>
+                    <th class="action">Action</th>
+                    <th class="title">Title</th>
+                    <th>Type</th>
+                </tr>
+                <?php 
+                    $number = 1; 
+                    foreach ($rows as $row) :?>
+                <tr>
+                    <td><?=$number?></td>
+                    <td>
+                        <a href="edit.php?id=<?=$row["id"]?>">Edit</a> | 
+                        <a href="delete.php?id=<?=$row["id"]?>" onclick="return confirm('Delete Data?')">Delete</a>
+                    </td>
+                    <td><?=$row["titile"]?></td>
+                    <td><?=$row["type"]?></td>
+                </tr>
+                <?php 
+                    $number+=1; 
+                    endforeach;?>
+            </table>
+        </div>
 
         <div class="gallery mt-3 mb-3">
             <h1>Gallery</h1>
@@ -148,7 +151,9 @@
                 <?php endforeach;?>
             </div>
         </div>
-        
+
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
