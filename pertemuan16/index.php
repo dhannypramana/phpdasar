@@ -50,7 +50,6 @@
     <div class="container mt-3">
         <a href="logout.php">Logout</a>
         <h1 class="mb-3">Halaman <?=$_SESSION["username"]?></h1>
-        <!-- <h1 class="mb-3">Halaman Admin</h1> -->
 
         <form action="" method="post">
             <div class="form-group">

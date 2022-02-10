@@ -1,4 +1,10 @@
 <?php 
+    session_start();
+
+    if (!isset($_SESSION["login"])) {
+        header('Location: login.php');
+    }
+    
     require "functions.php";
 
     $rows = query("SELECT * FROM books");
@@ -88,11 +94,7 @@
     <div class="container mt-3">
         <div class="header">
             <div class="panel">
-                <?php if (!isset($_GET["username"])): ?>
-                <h1>Library</h1>
-                <?php else :?>
-                <h1>Library <?=$_GET["username"]?>'s</h1>
-                <?php endif;?>
+                <h1>Library <?=$_SESSION["username"]?>'s</h1>
 
                 <!-- Searching Forms -->
                 <form action="" method="post" class="form">
@@ -105,7 +107,7 @@
                 </form>
             </div>
             <div class="nav">
-                <a href="login.php" class="btn btn-danger logout">Logout</a>
+                <a href="logout.php" class="btn btn-danger logout">Logout</a>
             </div>
         </div>
 

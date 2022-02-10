@@ -1,10 +1,18 @@
 <?php 
+    session_start();
+
+    if (isset($_SESSION["login"])) {
+        header('Location: index.php');
+    }
+    
     require "functions.php";
 
     if (isset($_POST["submit-login"])) {
         if(login($_POST) > 0){
-            $username = $_POST["username"];
-            header("Location: index.php?username=$username");
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["login"] = true;
+
+            header("Location: index.php");
         } else {
             echo "
                 <script>
